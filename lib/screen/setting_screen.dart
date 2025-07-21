@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gazaburger/bottom_sheet.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingScreen extends StatefulWidget {
   @override
@@ -37,10 +38,15 @@ class _SettingScreenState extends State<SettingScreen> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            context.pop();
+          },
         ),
         centerTitle: true,
-        title: Text("Settings", style: TextStyle(color: Colors.black)),
+        title: Text(
+          "Settings",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),

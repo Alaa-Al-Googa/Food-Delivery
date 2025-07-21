@@ -62,7 +62,10 @@ class ChatScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: Text("Chat List", style: TextStyle(color: Colors.black)),
+        title: Text(
+          "Chat List",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

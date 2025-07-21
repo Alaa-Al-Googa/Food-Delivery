@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PersonalData extends StatefulWidget {
   @override
@@ -25,13 +26,18 @@ class _PersonalDataState extends State<PersonalData> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Personal Data", style: TextStyle(color: Colors.black)),
+        title: Text(
+          "Personal Data",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
-          onPressed: () {},
+          onPressed: () {
+            context.pop();
+          },
         ),
       ),
       body: SingleChildScrollView(

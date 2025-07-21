@@ -11,7 +11,10 @@ class ProfileScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: Text("Profile Settings", style: TextStyle(color: Colors.black)),
+        title: Text(
+          "Profile Settings",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
       ),
       body: Column(
         children: [
@@ -44,12 +47,13 @@ class ProfileScreen extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
           Text("Albertstevano@gmail.com", style: TextStyle(color: Colors.grey)),
-          Divider(height: 30, thickness: 1),
+          SizedBox(width: 350, child: Divider(height: 30, thickness: 1)),
 
           // List Tiles
           Expanded(
             child: ListView(
               children: [
+                sectionTitle("Profile"),
                 ListTile(
                   title: Text('Personal Data'),
                   leading: Icon(Icons.person, color: Colors.black),
@@ -80,7 +84,6 @@ class ProfileScreen extends StatelessWidget {
                     );
                   },
                 ),
-                //customTile("Settings", Icons.settings),
                 customTile("Extra Card", Icons.credit_card),
                 SizedBox(height: 20),
                 sectionTitle("Support"),
