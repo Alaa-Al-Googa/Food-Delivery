@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gazaburger/screen/details_screen.dart';
 
-class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({Key? key}) : super(key: key);
-
-  @override
-  _FavoriteScreenState createState() => _FavoriteScreenState();
-}
-
-class _FavoriteScreenState extends State<FavoriteScreen> {
+class FoodListSection extends StatelessWidget {
   final List<Map<String, dynamic>> burgers = [
     {
       'name': 'Ordinary Burgers',
@@ -41,27 +35,31 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('Favorite', style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.white,
-        centerTitle: true,
+    return GridView.builder(
+      padding: const EdgeInsets.all(12),
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: burgers.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 16,
+        crossAxisSpacing: 16,
+        childAspectRatio: 0.69,
       ),
-      body: GridView.builder(
-        padding: const EdgeInsets.all(12),
-        shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        itemCount: burgers.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 16,
-          childAspectRatio: 0.69,
-        ),
-        itemBuilder: (context, index) {
-          final item = burgers[index];
-          return Card(
+      itemBuilder: (context, index) {
+        final item = burgers[index];
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return DetailsScreen();
+                },
+              ),
+            );
+          },
+          child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
@@ -86,7 +84,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       right: 8,
                       child: CircleAvatar(
                         backgroundColor: Colors.white,
-                        child: Icon(Icons.delete, color: Colors.red),
+                        child: Icon(Icons.favorite_border, color: Colors.red),
                       ),
                     ),
                   ],
@@ -129,9 +127,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                 ),
               ],
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

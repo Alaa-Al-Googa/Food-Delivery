@@ -83,8 +83,8 @@ class _SplashScreenState extends State<SplashScreen> {
                           // الزر الأخير (Go) أو زر Next
                           currentPage == images.length - 1
                               ? Container(
-                                  width: 50,
-                                  height: 50,
+                                  width: 70,
+                                  height: 70,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     shape: BoxShape.circle,
@@ -93,9 +93,15 @@ class _SplashScreenState extends State<SplashScreen> {
                                     onTap: () {
                                       context.go('/login');
                                     },
-                                    child: Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.orange,
+                                    child: CustomPaint(
+                                      painter: RingPainter(),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.arrow_forward,
+                                          color: Colors.orange,
+                                          size: 20,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 )
@@ -144,4 +150,29 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
     );
   }
+}
+
+class RingPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Paint paint = Paint()
+      ..color = Colors.orange
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+
+    final double radius = size.width / 2 - 4; // تباعد بسيط من الحواف
+    final Offset center = Offset(size.width / 2, size.height / 2);
+
+    // ارسم دائرة شبه مكتملة (نفس الصورة)
+    canvas.drawArc(
+      Rect.fromCircle(center: center, radius: radius),
+      -0.2, // البداية
+      2 * 3.14 * 0.95, // الزاوية
+      false,
+      paint,
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

@@ -40,7 +40,7 @@ class _HomePageState extends State<Home> {
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.orange,
+        selectedItemColor: Color(0xffFE8C00),
         unselectedItemColor: Colors.grey,
         selectedFontSize: 15, // حجم النص المحدد
         unselectedFontSize: 12,
