@@ -19,7 +19,6 @@ class ProfileScreen extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: 10),
-          // Profile Picture with edit icon
           Stack(
             alignment: Alignment.bottomRight,
             children: [
@@ -35,8 +34,12 @@ class ProfileScreen extends StatelessWidget {
                     color: Colors.white,
                     shape: BoxShape.circle,
                   ),
-                  padding: EdgeInsets.all(2),
-                  child: Icon(Icons.camera_alt, size: 18, color: Colors.orange),
+                  padding: EdgeInsets.all(5),
+                  child: Icon(
+                    Icons.camera_alt,
+                    size: 15,
+                    color: Color(0xffFE8C00),
+                  ),
                 ),
               ),
             ],
@@ -48,16 +51,27 @@ class ProfileScreen extends StatelessWidget {
           ),
           Text("Albertstevano@gmail.com", style: TextStyle(color: Colors.grey)),
           SizedBox(width: 350, child: Divider(height: 30, thickness: 1)),
-
-          // List Tiles
           Expanded(
             child: ListView(
               children: [
                 sectionTitle("Profile"),
                 ListTile(
-                  title: Text('Personal Data'),
-                  leading: Icon(Icons.person, color: Colors.black),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  title: Text(
+                    'Personal Data',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  leading: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 231, 230, 230),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Icon(Icons.person, color: Colors.black),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Colors.black,
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -70,9 +84,22 @@ class ProfileScreen extends StatelessWidget {
                   },
                 ),
                 ListTile(
-                  title: Text('Settings'),
-                  leading: Icon(Icons.settings, color: Colors.black),
-                  trailing: Icon(Icons.arrow_forward_ios, size: 16),
+                  title: Text(
+                    'Settings',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  leading: Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 231, 230, 230),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Icon(Icons.settings, color: Colors.black),
+                  ),
+                  trailing: Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Colors.black,
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
@@ -87,14 +114,12 @@ class ProfileScreen extends StatelessWidget {
                 customTile("Extra Card", Icons.credit_card),
                 SizedBox(height: 20),
                 sectionTitle("Support"),
-                customTile("Help Center", Icons.help),
-                customTile("Request Account Deletion", Icons.delete_forever),
-                customTile("Add another account", Icons.add),
+                customTile("Help Center", Icons.info),
+                customTile("Request Account Deletion", Icons.delete_outline),
+                customTile("Add another account", Icons.person_add),
               ],
             ),
           ),
-
-          // Sign Out Button
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: OutlinedButton.icon(
@@ -117,9 +142,15 @@ class ProfileScreen extends StatelessWidget {
 
   Widget customTile(String title, IconData icon) {
     return ListTile(
-      leading: Icon(icon, color: Colors.black),
-      title: Text(title),
-      trailing: Icon(Icons.arrow_forward_ios, size: 16),
+      leading: Container(
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 231, 230, 230),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Icon(icon, color: Colors.black),
+      ),
+      title: Text(title, style: TextStyle(color: Colors.black)),
+      trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.black),
       onTap: () {},
     );
   }

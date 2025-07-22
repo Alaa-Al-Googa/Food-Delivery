@@ -34,7 +34,16 @@ class _PersonalDataState extends State<PersonalData> {
         elevation: 0,
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          icon: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: const Color.fromARGB(255, 240, 238, 238),
+              ),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Icon(Icons.arrow_back_ios, color: Colors.black),
+          ),
           onPressed: () {
             context.pop();
           },
@@ -44,15 +53,12 @@ class _PersonalDataState extends State<PersonalData> {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            // Profile Image
             Stack(
               alignment: Alignment.bottomRight,
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage(
-                    "assets/images/person2.png",
-                  ), // صورة وهمية
+                  backgroundImage: AssetImage("assets/images/person2.png"),
                 ),
                 Positioned(
                   bottom: 0,
@@ -62,28 +68,25 @@ class _PersonalDataState extends State<PersonalData> {
                       color: Colors.white,
                       shape: BoxShape.circle,
                     ),
-                    padding: EdgeInsets.all(3),
+                    padding: EdgeInsets.all(5),
                     child: Icon(
                       Icons.camera_alt,
-                      color: Colors.orange,
-                      size: 20,
+                      color: Color(0xffFE8C00),
+                      size: 15,
                     ),
                   ),
                 ),
               ],
             ),
             SizedBox(height: 30),
-
             buildLabel("Full Name"),
             buildTextField(controller: nameController),
-
             buildLabel("Date of birth"),
             buildTextField(controller: dobController),
-
             buildLabel("Gender"),
             DropdownButtonFormField<String>(
               value: selectedGender,
-              items: ["Male", "Female", "Other"]
+              items: ["Male", "Female"]
                   .map(
                     (gender) =>
                         DropdownMenuItem(value: gender, child: Text(gender)),
@@ -102,25 +105,18 @@ class _PersonalDataState extends State<PersonalData> {
                 ),
               ),
             ),
-
             buildLabel("Phone"),
             buildTextField(controller: phoneController),
-
             buildLabel("Email"),
             buildTextField(controller: emailController),
-
             SizedBox(height: 30),
-
-            // Save Button
             SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
-                onPressed: () {
-                  // حفظ البيانات
-                },
+                onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.orange,
+                  backgroundColor: Color(0xffFE8C00),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),

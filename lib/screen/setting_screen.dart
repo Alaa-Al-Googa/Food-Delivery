@@ -10,7 +10,7 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   bool pushNotification = false;
   bool location = true;
-  String selectedLanguage = "English";
+  String selectedLanguage = "English (US)";
 
   Future<void> showLanguagePickerBottomSheet({
     required BuildContext context,
@@ -37,7 +37,16 @@ class _SettingScreenState extends State<SettingScreen> {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
+          icon: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: const Color.fromARGB(255, 240, 238, 238),
+              ),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Icon(Icons.arrow_back_ios, color: Colors.black),
+          ),
           onPressed: () {
             context.pop();
           },
@@ -58,10 +67,13 @@ class _SettingScreenState extends State<SettingScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: SwitchListTile(
-              title: Text("Push Notification"),
+              title: Text(
+                "Push Notification",
+                style: TextStyle(color: Colors.black),
+              ),
               value: pushNotification,
               activeColor: Colors.white,
-              activeTrackColor: Colors.orange,
+              activeTrackColor: Color(0xffFE8C00),
               inactiveThumbColor: Colors.white,
               onChanged: (val) {
                 setState(() {
@@ -74,10 +86,10 @@ class _SettingScreenState extends State<SettingScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: SwitchListTile(
-              title: Text("Location"),
+              title: Text("Location", style: TextStyle(color: Colors.black)),
               value: location,
               activeColor: Colors.white,
-              activeTrackColor: Colors.orange,
+              activeTrackColor: Color(0xffFE8C00),
               inactiveThumbColor: Colors.white,
               onChanged: (val) {
                 setState(() {
@@ -87,10 +99,8 @@ class _SettingScreenState extends State<SettingScreen> {
               contentPadding: EdgeInsets.zero,
             ),
           ),
-
-          // Language Row
           ListTile(
-            title: Text("Language"),
+            title: Text("Language", style: TextStyle(color: Colors.black)),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -102,7 +112,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 Icon(Icons.arrow_forward_ios, size: 16),
               ],
             ),
-            subtitle: Text('OTHER'),
+            subtitle: Text('OTHER', style: TextStyle(color: Colors.grey)),
             onTap: () {
               showLanguagePickerBottomSheet(
                 context: context,
@@ -115,8 +125,7 @@ class _SettingScreenState extends State<SettingScreen> {
               );
             },
           ),
-
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           buildArrowTile("About Ticketis"),
           buildArrowTile("Privacy Policy"),
           buildArrowTile("Terms and Conditions"),
@@ -141,7 +150,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
   Widget buildArrowTile(String title) {
     return ListTile(
-      title: Text(title),
+      title: Text(title, style: TextStyle(color: Colors.black)),
       trailing: Icon(Icons.arrow_forward_ios, size: 16),
       onTap: () {},
     );

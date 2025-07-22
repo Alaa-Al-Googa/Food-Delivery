@@ -39,7 +39,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(height: 10),
                 TextField(
                   decoration: InputDecoration(
-                    labelText: 'Email Address',
+                    hint: Text('Albertstevano@gmail.com'),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -53,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 SizedBox(height: 10),
                 TextField(
                   decoration: InputDecoration(
-                    labelText: 'User Name',
+                    hint: Text('Alber tstevano'),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -65,7 +65,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 TextField(
                   obscureText: _obscureText,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    hint: Text('**********'),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -124,7 +124,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_isChecked) {
-                        print('Register pressed');
+                        //print('Register pressed');
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text("Please agree to the terms")),
@@ -148,41 +148,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Expanded(
                       child: Divider(
-                        color: Colors.grey, // لون الخط
-                        thickness: 1, // سماكة الخط
-                        endIndent: 10, // مسافة من النص
+                        color: Colors.grey,
+                        thickness: 1,
+                        endIndent: 10,
                       ),
                     ),
                     Text(
                       "Or sign in with",
-                      style: TextStyle(color: Colors.grey), // لون النص
+                      style: TextStyle(color: Colors.grey),
                     ),
                     Expanded(
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
-                        indent: 10, // مسافة من النص
+                        indent: 10,
                       ),
                     ),
                   ],
                 ),
-
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    socialIcon(Icons.g_mobiledata), // Google
+                    socialIcon(Icons.g_mobiledata),
                     SizedBox(width: 20),
-                    socialIcon(Icons.facebook), // Facebook
+                    socialIcon(Icons.facebook),
                     SizedBox(width: 20),
-                    socialIcon(Icons.apple), // Apple
+                    socialIcon(Icons.apple),
                   ],
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
                 Center(
                   child: TextButton(
                     onPressed: () {
-                      print('Sign In pressed');
+                      //print('Sign In pressed');
                     },
                     child: GestureDetector(
                       onTap: () {

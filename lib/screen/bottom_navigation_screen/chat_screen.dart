@@ -78,38 +78,40 @@ class ChatScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.separated(
+            child: ListView.builder(
               itemCount: chats.length,
-              separatorBuilder: (_, __) => Divider(height: 1),
               itemBuilder: (context, index) {
                 var chat = chats[index];
-                return ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: AssetImage(chat['image']),
-                    radius: 25,
-                  ),
-                  title: Text(
-                    chat['name'],
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(chat['message']),
-                  trailing: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        chat['time'],
-                        style: TextStyle(color: Colors.grey, fontSize: 12),
-                      ),
-                      SizedBox(height: 4),
-                      if (chat['status'] == "read")
-                        Icon(Icons.check, color: Colors.orange, size: 18)
-                      else if (chat['status'] == "unread")
-                        Icon(
-                          FontAwesomeIcons.checkDouble,
-                          color: Colors.orange,
-                          size: 12,
+                return Card(
+                  color: Colors.white,
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage(chat['image']),
+                      radius: 25,
+                    ),
+                    title: Text(
+                      chat['name'],
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(chat['message']),
+                    trailing: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          chat['time'],
+                          style: TextStyle(color: Colors.grey, fontSize: 12),
                         ),
-                    ],
+                        SizedBox(height: 4),
+                        if (chat['status'] == "read")
+                          Icon(Icons.check, color: Colors.orange, size: 18)
+                        else if (chat['status'] == "unread")
+                          Icon(
+                            FontAwesomeIcons.checkDouble,
+                            color: Colors.orange,
+                            size: 12,
+                          ),
+                      ],
+                    ),
                   ),
                 );
               },

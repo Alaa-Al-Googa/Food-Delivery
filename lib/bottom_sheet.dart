@@ -57,7 +57,9 @@ class _LanguagePickerBottomSheetState extends State<LanguagePickerBottomSheet> {
                 ),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: isSelected ? Colors.orange : Colors.grey.shade300,
+                    color: isSelected
+                        ? Color(0xffFE8C00)
+                        : Colors.grey.shade300,
                     width: isSelected ? 2 : 1,
                   ),
                   borderRadius: BorderRadius.circular(20),
@@ -80,8 +82,8 @@ class _LanguagePickerBottomSheetState extends State<LanguagePickerBottomSheet> {
                     if (isSelected)
                       Container(
                         decoration: BoxDecoration(
-                          color: Colors.orange,
-                          border: Border.all(color: Colors.orange),
+                          color: Color(0xffFE8C00),
+                          border: Border.all(color: Color(0xffFE8C00)),
                           borderRadius: BorderRadius.circular(46),
                         ),
                         child: Icon(Icons.check, color: Colors.white),
@@ -96,7 +98,7 @@ class _LanguagePickerBottomSheetState extends State<LanguagePickerBottomSheet> {
             width: double.infinity,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
+                backgroundColor: Color(0xffFE8C00),
                 padding: const EdgeInsets.symmetric(vertical: 14),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

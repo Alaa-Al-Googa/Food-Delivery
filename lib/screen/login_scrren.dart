@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 10),
                 TextField(
                   decoration: InputDecoration(
-                    labelText: 'Email Address',
+                    hint: Text('Albertstevano@gmail.com'),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextField(
                   obscureText: _obscureText,
                   decoration: InputDecoration(
-                    labelText: 'Password',
+                    hint: Text('**********'),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -102,14 +102,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     Expanded(
                       child: Divider(
-                        color: Colors.grey, // لون الخط
-                        thickness: 1, // سماكة الخط
-                        endIndent: 10, // مسافة من النص
+                        color: Colors.grey,
+                        thickness: 1,
+                        endIndent: 10,
                       ),
                     ),
                     Text(
                       "Or sign in with",
-                      style: TextStyle(color: Colors.grey), // لون النص
+                      style: TextStyle(color: Colors.grey),
                     ),
                     Expanded(
                       child: Divider(
@@ -124,11 +124,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.g_mobiledata), // Google
+                    socialIcon(Icons.g_mobiledata),
                     SizedBox(width: 20),
-                    Icon(Icons.facebook), // Facebook
+                    socialIcon(Icons.facebook),
                     SizedBox(width: 20),
-                    Icon(Icons.apple), // Apple
+                    socialIcon(Icons.apple),
                   ],
                 ),
                 SizedBox(height: 30),
@@ -159,6 +159,17 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget socialIcon(IconData icon) {
+    return Container(
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.grey.shade300),
+      ),
+      child: Icon(icon, size: 28, color: Colors.black),
     );
   }
 }
