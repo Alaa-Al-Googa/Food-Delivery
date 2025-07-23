@@ -2,177 +2,174 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  PageController _controller = PageController();
-  int currentPage = 0;
+  final PageController _controller = PageController();
+  int _currentPage = 0;
 
-  List<String> images = [
+  final List<String> images = [
     'assets/images/image 1.png',
     'assets/images/image 1.png',
     'assets/images/image 1.png',
   ];
+
+  void _nextPage() {
+    if (_currentPage < 2) {
+      _controller.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeIn,
+      );
+    }
+  }
+
+  void _skip() {
+    _controller.animateToPage(
+      2,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeIn,
+    );
+  }
+
+  Widget _buildPageContent(String image, bool isLastPage) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Image.asset(image, fit: BoxFit.cover),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: const EdgeInsets.all(30),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFE8C00),
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  "We serve\nincomparable\ndelicacies",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 15),
+                const Text(
+                  "All the best restaurants with their top\nmenu waiting for you, they can't wait\nfor your order!!",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white70, fontSize: 15),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    3,
+                    (index) => Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
+                      width: 10,
+                      height: 10,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _currentPage == index
+                            ? Colors.white
+                            : Colors.transparent,
+                        border: Border.all(color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                isLastPage
+                    ? GestureDetector(
+                        onTap: () {
+                          context.go('/login');
+                        },
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            SizedBox(
+                              width: 80,
+                              height: 80,
+                              child: CircularProgressIndicator(
+                                value: 0.70,
+                                strokeWidth: 2,
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  Colors.white,
+                                ),
+                                backgroundColor: Colors.white.withOpacity(0.3),
+                              ),
+                            ),
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Icon(
+                                Icons.arrow_forward,
+                                color: Color(0xFFFE8C00),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          TextButton(
+                            onPressed: _skip,
+                            child: const Text(
+                              "Skip",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: _nextPage,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: const [
+                                Text(
+                                  "Next",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                SizedBox(width: 5),
+                                Icon(Icons.arrow_forward, color: Colors.white),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView.builder(
         controller: _controller,
-        itemCount: images.length,
+        itemCount: 3,
         onPageChanged: (index) {
           setState(() {
-            currentPage = index;
+            _currentPage = index;
           });
         },
-        itemBuilder: (context, index) {
-          return Stack(
-            fit: StackFit.expand,
-            children: [
-              Image.asset(images[index], fit: BoxFit.cover),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  margin: EdgeInsets.all(20),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-                  decoration: BoxDecoration(
-                    color: Colors.orange,
-                    borderRadius: BorderRadius.circular(46), // انحناء كبير
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'We serve\nincomparable\ndelicacies',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 33,
-                          fontWeight: FontWeight.bold,
-                          height: 1.4,
-                        ),
-                      ),
-                      SizedBox(height: 15),
-                      Text(
-                        "All the best restaurants with their top\nmenu waiting for you, they can't wait\nfor your order!",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white70, fontSize: 14),
-                      ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: currentPage == images.length - 1
-                            ? MainAxisAlignment
-                                  .center // الزر بالنص في الصفحة الأخيرة
-                            : MainAxisAlignment
-                                  .spaceBetween, // توزيع عادي في باقي الصفحات
-                        children: [
-                          // فقط لو مش بالصفحة الأخيرة، اعرض زر Skip
-                          if (currentPage != images.length - 1)
-                            TextButton(
-                              onPressed: () {
-                                _controller.jumpToPage(images.length - 1);
-                              },
-                              child: Text(
-                                "Skip",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-
-                          // الزر الأخير (Go) أو زر Next
-                          currentPage == images.length - 1
-                              ? Container(
-                                  width: 70,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      context.go('/login');
-                                    },
-                                    child: CustomPaint(
-                                      painter: RingPainter(),
-                                      child: Center(
-                                        child: Icon(
-                                          Icons.arrow_forward,
-                                          color: Colors.orange,
-                                          size: 20,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : TextButton(
-                                  onPressed: () {
-                                    _controller.nextPage(
-                                      duration: Duration(milliseconds: 500),
-                                      curve: Curves.ease,
-                                    );
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Next",
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                      SizedBox(width: 5),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.white,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          );
-        },
+        itemBuilder: (context, index) =>
+            _buildPageContent(images[index], index == 2),
       ),
     );
   }
-
-  Widget buildDot(bool isSelected) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      width: isSelected ? 20 : 10,
-      height: 8,
-      decoration: BoxDecoration(
-        color: isSelected ? Colors.white : Colors.white54,
-        borderRadius: BorderRadius.circular(20),
-      ),
-    );
-  }
-}
-
-class RingPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
-      ..color = Colors.orange
-      ..strokeWidth = 2
-      ..style = PaintingStyle.stroke;
-
-    final double radius = size.width / 2 - 4; // تباعد بسيط من الحواف
-    final Offset center = Offset(size.width / 2, size.height / 2);
-
-    // ارسم دائرة شبه مكتملة (نفس الصورة)
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius),
-      -0.2, // البداية
-      2 * 3.14 * 0.95, // الزاوية
-      false,
-      paint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

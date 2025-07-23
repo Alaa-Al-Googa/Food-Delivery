@@ -86,7 +86,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   children: [
                     Checkbox(
                       value: _isChecked,
-                      activeColor: Colors.orange,
+                      activeColor: Color(0XffFE8C00),
                       onChanged: (value) {
                         setState(() {
                           _isChecked = value!;
@@ -132,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Color(0XffFE8C00),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -170,11 +170,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    socialIcon(Icons.g_mobiledata),
+                    socialIcon('assets/images/google.jpg'),
                     SizedBox(width: 20),
-                    socialIcon(Icons.facebook),
+                    socialIcon('assets/images/faesback.jpg'),
                     SizedBox(width: 20),
-                    socialIcon(Icons.apple),
+                    socialIcon('assets/images/appel.jpg'),
                   ],
                 ),
                 SizedBox(height: 20),
@@ -194,7 +194,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           children: [
                             TextSpan(
                               text: "Sign In",
-                              style: TextStyle(color: Colors.orange),
+                              style: TextStyle(color: Color(0XffFE8C00)),
                             ),
                           ],
                         ),
@@ -210,14 +210,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 
-  Widget socialIcon(IconData icon) {
+  Widget socialIcon(String imagePath) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: Colors.grey.shade300),
       ),
-      child: Icon(icon, size: 28, color: Colors.black),
+      child: Image.asset(imagePath, width: 28, height: 28, fit: BoxFit.contain),
     );
   }
 }

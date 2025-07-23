@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gazaburger/api_service.dart';
 import 'package:gazaburger/models/category.dart';
+import 'package:gazaburger/shimmer.dart';
 
 class CategorySection extends StatefulWidget {
   final Function(String) onCategoryTap;
@@ -51,7 +52,7 @@ class _CategorySectionState extends State<CategorySection> {
           ),
           const SizedBox(height: 12),
           categories.isEmpty
-              ? const Center(child: CircularProgressIndicator())
+              ? ShimmerCategory()
               : SizedBox(
                   height: 100,
                   child: ListView.separated(
@@ -87,6 +88,33 @@ class _CategorySectionState extends State<CategorySection> {
                                 category.imageUrl,
                                 height: 40,
                                 width: 40,
+                                fit: BoxFit.cover,
+                                loadingBuilder:
+                                    (context, child, loadingProgress) {
+                                      if (loadingProgress == null) return child;
+                                      return Container(
+                                        //height: 120,
+                                        width: double.infinity,
+                                        color: Colors.grey[300],
+                                        child: const Center(
+                                          child: CircularProgressIndicator(
+                                            color: Color(0xffFE8C00),
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                errorBuilder: (context, error, stackTrace) {
+                                  return Container(
+                                    height: 120,
+                                    width: double.infinity,
+                                    color: Colors.grey[300],
+                                    child: const Icon(
+                                      Icons.broken_image,
+                                      color: Colors.grey,
+                                      size: 40,
+                                    ),
+                                  );
+                                },
                               ),
                               const SizedBox(height: 8),
                               Text(

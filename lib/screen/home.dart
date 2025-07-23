@@ -26,7 +26,7 @@ class _HomePageState extends State<Home> {
   String chat = 'Chat';
   String profile = 'Profile';
 
-  final List<String> _titles = ["Home", "Favorite", "Chat", "Profile"];
+  //final List<String> _titles = ["Home", "Favorite", "Chat", "Profile"];
 
   void onTabTapped(int index) {
     setState(() {
@@ -40,9 +40,9 @@ class _HomePageState extends State<Home> {
       body: pages[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Color(0xffFE8C00),
+        selectedItemColor: Color(0XffFE8C00),
         unselectedItemColor: Colors.grey,
-        selectedFontSize: 15, // حجم النص المحدد
+        selectedFontSize: 15,
         unselectedFontSize: 12,
         onTap: onTabTapped,
         items: [

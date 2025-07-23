@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gazaburger/api_service.dart';
 import 'package:gazaburger/models/meal.dart';
 import 'package:gazaburger/screen/details_screen.dart';
+import 'package:gazaburger/shimmer.dart';
 
 class FoodListSection extends StatefulWidget {
   final String category;
@@ -25,7 +26,7 @@ class _FoodListSectionState extends State<FoodListSection> {
   void didUpdateWidget(covariant FoodListSection oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.category != widget.category) {
-      fetchMeals(); // لازم يعيد تحميل الوجبات
+      fetchMeals();
     }
   }
 
@@ -43,7 +44,7 @@ class _FoodListSectionState extends State<FoodListSection> {
   @override
   Widget build(BuildContext context) {
     return meals.isEmpty
-        ? const Center(child: CircularProgressIndicator())
+        ? ShimmerGrid()
         : GridView.builder(
             padding: const EdgeInsets.all(12),
             shrinkWrap: true,
@@ -94,7 +95,9 @@ class _FoodListSectionState extends State<FoodListSection> {
                                       width: double.infinity,
                                       color: Colors.grey[300],
                                       child: const Center(
-                                        child: CircularProgressIndicator(),
+                                        child: CircularProgressIndicator(
+                                          color: Color(0xffFE8C00),
+                                        ),
                                       ),
                                     );
                                   },
@@ -111,13 +114,6 @@ class _FoodListSectionState extends State<FoodListSection> {
                                 );
                               },
                             ),
-
-                            // Image.network(
-                            //   item.thumbnail,
-                            //   height: 120,
-                            //   width: double.infinity,
-                            //   fit: BoxFit.cover,
-                            // ),
                           ),
                           Positioned(
                             top: 8,

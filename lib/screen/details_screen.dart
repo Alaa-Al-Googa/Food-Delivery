@@ -32,7 +32,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
         future: ApiService.fetchMealDetails(widget.id),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+              child: CircularProgressIndicator(color: Color(0xffFE8C00)),
+            );
           } else if (snapshot.hasError) {
             return Center(child: Text('خطأ: ${snapshot.error}'));
           } else if (!snapshot.hasData) {

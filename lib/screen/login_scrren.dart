@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {},
                     child: Text(
                       'Forgot password?',
-                      style: TextStyle(color: Colors.orange),
+                      style: TextStyle(color: Color(0XffFE8C00)),
                     ),
                   ),
                 ),
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       context.go('/home');
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.orange,
+                      backgroundColor: Color(0XffFE8C00),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
@@ -124,11 +124,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    socialIcon(Icons.g_mobiledata),
+                    socialIcon('assets/images/google.jpg'),
                     SizedBox(width: 20),
-                    socialIcon(Icons.facebook),
+                    socialIcon('assets/images/faesback.jpg'),
                     SizedBox(width: 20),
-                    socialIcon(Icons.apple),
+                    socialIcon('assets/images/appel.jpg'),
                   ],
                 ),
                 SizedBox(height: 30),
@@ -146,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           children: [
                             TextSpan(
                               text: "Register",
-                              style: TextStyle(color: Colors.orange),
+                              style: TextStyle(color: Color(0XffFE8C00)),
                             ),
                           ],
                         ),
@@ -162,14 +162,14 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget socialIcon(IconData icon) {
+  Widget socialIcon(String imagePath) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: Colors.grey.shade300),
       ),
-      child: Icon(icon, size: 28, color: Colors.black),
+      child: Image.asset(imagePath, width: 28, height: 28, fit: BoxFit.contain),
     );
   }
 }

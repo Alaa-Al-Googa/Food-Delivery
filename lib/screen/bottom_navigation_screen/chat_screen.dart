@@ -103,11 +103,11 @@ class ChatScreen extends StatelessWidget {
                         ),
                         SizedBox(height: 4),
                         if (chat['status'] == "read")
-                          Icon(Icons.check, color: Colors.orange, size: 18)
+                          Icon(Icons.check, color: Color(0XffFE8C00), size: 18)
                         else if (chat['status'] == "unread")
                           Icon(
                             FontAwesomeIcons.checkDouble,
-                            color: Colors.orange,
+                            color: Color(0XffFE8C00),
                             size: 12,
                           ),
                       ],
