@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gazaburger/api_service.dart';
 import 'package:gazaburger/models/category.dart';
@@ -42,12 +43,15 @@ class _CategorySectionState extends State<CategorySection> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text(
-                'Find by Category',
+                'text_find_home'.tr(),
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              Text('See All', style: TextStyle(color: Color(0xffFE8C00))),
+              Text(
+                'text_see_home'.tr(),
+                style: TextStyle(color: Color(0xffFE8C00)),
+              ),
             ],
           ),
           const SizedBox(height: 12),

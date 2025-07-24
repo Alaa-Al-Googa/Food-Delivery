@@ -7,10 +7,11 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   runApp(
     EasyLocalization(
-      supportedLocales: [Locale('en'), Locale('ar')],
+      supportedLocales: [Locale('ar'), Locale('en')],
       path: 'assets/translations',
-      fallbackLocale: Locale('ar'),
-      assetLoader: const RootBundleAssetLoader(),
+      fallbackLocale: Locale('en'),
+      startLocale: Locale('en'),
+      //assetLoader: const RootBundleAssetLoader(),
       child: MyApp(),
     ),
   );

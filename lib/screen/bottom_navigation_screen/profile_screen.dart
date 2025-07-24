@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gazaburger/screen/personal_data.dart';
 import 'package:gazaburger/screen/setting_screen.dart';
@@ -12,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "Profile Settings",
+          'text_appbar_profile'.tr(),
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
@@ -54,10 +55,10 @@ class ProfileScreen extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                sectionTitle("Profile"),
+                sectionTitle('text_profile1'.tr()),
                 ListTile(
                   title: Text(
-                    'Personal Data',
+                    'personal_profile'.tr(),
                     style: TextStyle(color: Colors.black),
                   ),
                   leading: Container(
@@ -85,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 ListTile(
                   title: Text(
-                    'Settings',
+                    'setting_profile'.tr(),
                     style: TextStyle(color: Colors.black),
                   ),
                   leading: Container(
@@ -111,12 +112,15 @@ class ProfileScreen extends StatelessWidget {
                     );
                   },
                 ),
-                customTile("Extra Card", Icons.credit_card),
+                customTile('card_profile'.tr(), Icons.credit_card),
                 SizedBox(height: 20),
-                sectionTitle("Support"),
-                customTile("Help Center", Icons.info),
-                customTile("Request Account Deletion", Icons.delete_outline),
-                customTile("Add another account", Icons.person_add),
+                sectionTitle('text_profile2'.tr()),
+                customTile('help_profile'.tr(), Icons.info),
+                customTile(
+                  'account_deletion_profile'.tr(),
+                  Icons.delete_outline,
+                ),
+                customTile('add_account_profile'.tr(), Icons.person_add),
               ],
             ),
           ),
@@ -125,7 +129,10 @@ class ProfileScreen extends StatelessWidget {
             child: OutlinedButton.icon(
               onPressed: () {},
               icon: Icon(Icons.logout, color: Colors.red),
-              label: Text("Sign Out", style: TextStyle(color: Colors.red)),
+              label: Text(
+                'logout_profile'.tr(),
+                style: TextStyle(color: Colors.red),
+              ),
               style: OutlinedButton.styleFrom(
                 side: BorderSide(color: Colors.grey),
                 shape: RoundedRectangleBorder(

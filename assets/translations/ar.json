@@ -7,7 +7,7 @@
 
 
     "__Logon":"Login",
-    "title_login":"تسجيل الدخول\\nإلى حسابك.",
+    "title_login":"تسجيل الدخول\nإلى حسابك.",
     "subTitle_login":"يرجى تسجيل الدخول إلى حسابك",
     "lable_email":"البريد الإلكتروني",
     "hint_email":"Albertstevano@gmail.com",
@@ -16,19 +16,19 @@
     "button_forgot":"هل نسيت كلمة المرور؟",
     "button_login":"تسجيل الدخول",
     "text_with_option":"أو سجل الدخول باستخدام",
-    "text_withRegister":"ليس لديك حساب؟",
+    "text_withRegister":" ليس لديك حساب؟",
     "button_send_register":"إنشاء حساب",
 
 
     "__register":"Register",
-    "title_register":"أنشئ حسابك\\nالجديد",
+    "title_register":"أنشئ حسابك\nالجديد",
     "subTitle_register":"أنشئ حسابًا لتبدأ بالبحث عن الطعام الذي تحبه",
     "lable_user_name":"اسم المستخدم",
-    "text_agree_register1":"أوافق على",
-    "text_agree_register2":"شروط الخدمة",
-    "text_agree_register3":"و",
+    "text_agree_register1":" أوافق على",
+    "text_agree_register2":" شروط الخدمة",
+    "text_agree_register3":" و",
     "text_agree_register4":"سياسة الخصوصية",
-
+    "button_register":"تسجيل",
 
 
     "__home":"Home",

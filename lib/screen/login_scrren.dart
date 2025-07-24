@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,17 +23,17 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 SizedBox(height: 50),
                 Text(
-                  'Login to your\naccount.',
+                  'title_login'.tr(),
                   style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Please sign in to your account',
+                  'subTitle_login'.tr(),
                   style: TextStyle(color: Colors.grey),
                 ),
                 SizedBox(height: 40),
                 Text(
-                  'Email Address',
+                  'lable_email'.tr(),
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
@@ -45,7 +46,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Text('Password', style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(
+                  'lable_password'.tr(),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 10),
                 TextField(
                   obscureText: _obscureText,
@@ -72,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Forgot password?',
+                      'button_forgot'.tr(),
                       style: TextStyle(color: Color(0XffFE8C00)),
                     ),
                   ),
@@ -92,7 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     child: Text(
-                      'Sign In',
+                      'button_login'.tr(),
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
@@ -108,14 +112,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Text(
-                      "Or sign in with",
+                      'text_with_option'.tr(),
                       style: TextStyle(color: Colors.grey),
                     ),
                     Expanded(
                       child: Divider(
                         color: Colors.grey,
                         thickness: 1,
-                        indent: 10, // مسافة من النص
+                        indent: 10,
                       ),
                     ),
                   ],
@@ -141,11 +145,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: RichText(
                         text: TextSpan(
-                          text: "Don't have an account? ",
+                          text: 'text_withRegister'.tr(),
                           style: TextStyle(color: Colors.black),
                           children: [
                             TextSpan(
-                              text: "Register",
+                              text: 'button_send_register'.tr(),
                               style: TextStyle(color: Color(0XffFE8C00)),
                             ),
                           ],

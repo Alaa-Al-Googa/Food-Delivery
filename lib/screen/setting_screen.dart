@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gazaburger/bottom_sheet.dart';
 import 'package:go_router/go_router.dart';
@@ -10,7 +11,8 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   bool pushNotification = false;
   bool location = true;
-  String selectedLanguage = "English (US)";
+  //String selectedLanguage = "English (US)";
+  late String selectedLanguage;
 
   Future<void> showLanguagePickerBottomSheet({
     required BuildContext context,
@@ -23,10 +25,19 @@ class _SettingScreenState extends State<SettingScreen> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) => LanguagePickerBottomSheet(
-        initialLanguage: initialLanguage,
+        //initialLanguage: initialLanguage,
+        initialLanguage: selectedLanguage,
         onSelected: onSelected,
       ),
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    selectedLanguage = context.locale.languageCode == 'ar'
+        ? 'العربية'
+        : 'English (US)';
   }
 
   @override
@@ -53,7 +64,7 @@ class _SettingScreenState extends State<SettingScreen> {
         ),
         centerTitle: true,
         title: Text(
-          "Settings",
+          'text_appbar_setting'.tr(),
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
@@ -62,13 +73,13 @@ class _SettingScreenState extends State<SettingScreen> {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 20),
-            child: sectionTitle("PROFILE"),
+            child: sectionTitle('text_setting'.tr()),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: SwitchListTile(
               title: Text(
-                "Push Notification",
+                'notificaton_setting'.tr(),
                 style: TextStyle(color: Colors.black),
               ),
               value: pushNotification,
@@ -86,7 +97,10 @@ class _SettingScreenState extends State<SettingScreen> {
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: SwitchListTile(
-              title: Text("Location", style: TextStyle(color: Colors.black)),
+              title: Text(
+                'location_setting'.tr(),
+                style: TextStyle(color: Colors.black),
+              ),
               value: location,
               activeColor: Colors.white,
               activeTrackColor: Color(0xffFE8C00),
@@ -100,19 +114,25 @@ class _SettingScreenState extends State<SettingScreen> {
             ),
           ),
           ListTile(
-            title: Text("Language", style: TextStyle(color: Colors.black)),
+            title: Text(
+              'title_language_setting'.tr(),
+              style: TextStyle(color: Colors.black),
+            ),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "English",
+                  context.locale.languageCode == 'ar' ? 'العربية' : 'English',
                   style: TextStyle(color: Colors.black, fontSize: 16),
                 ),
                 SizedBox(width: 20),
                 Icon(Icons.arrow_forward_ios, size: 16),
               ],
             ),
-            subtitle: Text('OTHER', style: TextStyle(color: Colors.grey)),
+            subtitle: Text(
+              'subTitle_language_setting'.tr(),
+              style: TextStyle(color: Colors.grey),
+            ),
             onTap: () {
               showLanguagePickerBottomSheet(
                 context: context,
@@ -126,9 +146,9 @@ class _SettingScreenState extends State<SettingScreen> {
             },
           ),
           SizedBox(height: 10),
-          buildArrowTile("About Ticketis"),
-          buildArrowTile("Privacy Policy"),
-          buildArrowTile("Terms and Conditions"),
+          buildArrowTile('about_setting'.tr()),
+          buildArrowTile('policy_setting'.tr()),
+          buildArrowTile('term_setting'.tr()),
         ],
       ),
     );

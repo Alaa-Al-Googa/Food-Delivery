@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gazaburger/api_service.dart';
 import 'package:gazaburger/models/meal.dart';
@@ -36,7 +37,10 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Favorite', style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(
+          'text_appbar_favorite'.tr(),
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.white,
         centerTitle: true,
       ),

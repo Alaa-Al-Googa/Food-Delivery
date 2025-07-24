@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gazaburger/screen/bottom_navigation_screen/chat_screen.dart';
 import 'package:gazaburger/screen/bottom_navigation_screen/favorite_screen.dart';
@@ -21,12 +22,10 @@ class _HomePageState extends State<Home> {
     ProfileScreen(),
   ];
 
-  String home = 'Home';
-  String favorite = 'Favorite';
-  String chat = 'Chat';
-  String profile = 'Profile';
-
-  //final List<String> _titles = ["Home", "Favorite", "Chat", "Profile"];
+  String home = 'home_nav'.tr();
+  String favorite = 'favorite_nav'.tr();
+  String chat = 'chat_nav'.tr();
+  String profile = 'profile_nav'.tr();
 
   void onTabTapped(int index) {
     setState(() {

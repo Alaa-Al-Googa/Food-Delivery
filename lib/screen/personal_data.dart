@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,7 +28,7 @@ class _PersonalDataState extends State<PersonalData> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          "Personal Data",
+          'text_appbar_Personal'.tr(),
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.white,
@@ -79,11 +80,11 @@ class _PersonalDataState extends State<PersonalData> {
               ],
             ),
             SizedBox(height: 30),
-            buildLabel("Full Name"),
+            buildLabel('lable_name'.tr()),
             buildTextField(controller: nameController),
-            buildLabel("Date of birth"),
+            buildLabel('lable_birth'.tr()),
             buildTextField(controller: dobController),
-            buildLabel("Gender"),
+            buildLabel('lable_gender'.tr()),
             DropdownButtonFormField<String>(
               value: selectedGender,
               items: ["Male", "Female"]
@@ -105,9 +106,9 @@ class _PersonalDataState extends State<PersonalData> {
                 ),
               ),
             ),
-            buildLabel("Phone"),
+            buildLabel('lable_phone'.tr()),
             buildTextField(controller: phoneController),
-            buildLabel("Email"),
+            buildLabel('lable_email_personal'.tr()),
             buildTextField(controller: emailController),
             SizedBox(height: 30),
             SizedBox(
@@ -122,7 +123,7 @@ class _PersonalDataState extends State<PersonalData> {
                   ),
                 ),
                 child: Text(
-                  "Save",
+                  'button_personal'.tr(),
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),

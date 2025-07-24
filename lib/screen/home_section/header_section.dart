@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class HeaderSection extends StatelessWidget {
@@ -27,11 +28,11 @@ class HeaderSection extends StatelessWidget {
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Row(
                         children: [
                           Text(
-                            'Your Location',
+                            'text_location_home'.tr(),
                             style: TextStyle(
                               color: Colors.white70,
                               fontSize: 17,
@@ -54,7 +55,7 @@ class HeaderSection extends StatelessWidget {
                           ),
                           SizedBox(width: 4),
                           Text(
-                            'New York City',
+                            'city_name_home'.tr(),
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -97,8 +98,8 @@ class HeaderSection extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 40),
-              const Text(
-                'Provide the best\nfood for you',
+              Text(
+                'title_home'.tr(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 33,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -63,7 +64,7 @@ class ChatScreen extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "Chat List",
+          'text_appbar_chat'.tr(),
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
@@ -73,7 +74,7 @@ class ChatScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              "All Message",
+              'title_chat'.tr(),
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart' as title_splash;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -52,20 +53,22 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  "We serve\nincomparable\ndelicacies",
+                Text(
+                  //"We serve\nincomparable\ndelicacies",
+                  'title_splash'.tr(),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 15),
-                const Text(
-                  "All the best restaurants with their top\nmenu waiting for you, they can't wait\nfor your order!!",
+                Text(
+                  //"All the best restaurants with their top\nmenu waiting for you, they can't wait\nfor your order!!",
+                  'subTitle_splach'.tr(),
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white70, fontSize: 15),
+                  style: const TextStyle(color: Colors.white70, fontSize: 15),
                 ),
                 const SizedBox(height: 20),
                 Row(
@@ -127,22 +130,27 @@ class _SplashScreenState extends State<SplashScreen> {
                         children: [
                           TextButton(
                             onPressed: _skip,
-                            child: const Text(
-                              "Skip",
-                              style: TextStyle(color: Colors.white),
+                            child: Text(
+                              //"Skip",
+                              'button_skip'.tr(),
+                              style: const TextStyle(color: Colors.white),
                             ),
                           ),
                           TextButton(
                             onPressed: _nextPage,
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
-                              children: const [
+                              children: [
                                 Text(
-                                  "Next",
-                                  style: TextStyle(color: Colors.white),
+                                  //"Next",
+                                  'button_next'.tr(),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
-                                SizedBox(width: 5),
-                                Icon(Icons.arrow_forward, color: Colors.white),
+                                const SizedBox(width: 5),
+                                const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                ),
                               ],
                             ),
                           ),

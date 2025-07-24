@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -23,17 +24,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
               children: [
                 SizedBox(height: 30),
                 Text(
-                  'Create your new\naccount',
+                  'title_register'.tr(),
                   style: TextStyle(fontSize: 33, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Create an account to start looking for the food you like',
+                  'subTitle_register'.tr(),
                   style: TextStyle(color: Colors.grey, fontSize: 18),
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Email Address',
+                  'lable_email'.tr(),
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
@@ -47,7 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'User Name',
+                  'lable_user_name'.tr(),
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10),
@@ -60,7 +61,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 SizedBox(height: 10),
-                Text('Password', style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(
+                  'lable_password'.tr(),
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 10),
                 TextField(
                   obscureText: _obscureText,
@@ -96,19 +100,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Expanded(
                       child: RichText(
                         text: TextSpan(
-                          text: "I Agree with ",
+                          text: 'text_agree_register1'.tr(),
                           style: TextStyle(color: Colors.black),
                           children: [
                             TextSpan(
-                              text: "Terms of Service ",
+                              text: 'text_agree_register2'.tr(),
                               style: TextStyle(color: Colors.orange),
                             ),
                             TextSpan(
-                              text: "and ",
+                              text: 'text_agree_register3'.tr(),
                               style: TextStyle(color: Colors.black),
                             ),
                             TextSpan(
-                              text: "Privacy Policy",
+                              text: 'text_agree_register4'.tr(),
                               style: TextStyle(color: Colors.orange),
                             ),
                           ],
@@ -138,7 +142,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     child: Text(
-                      'Register',
+                      'button_register'.tr(),
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),
                   ),
@@ -154,7 +158,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     Text(
-                      "Or sign in with",
+                      'text_with_option'.tr(),
                       style: TextStyle(color: Colors.grey),
                     ),
                     Expanded(
@@ -189,11 +193,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                       child: RichText(
                         text: TextSpan(
-                          text: "Don't have an account? ",
+                          text: 'text_withRegister'.tr(),
                           style: TextStyle(color: Colors.black),
                           children: [
                             TextSpan(
-                              text: "Sign In",
+                              text: 'button_login'.tr(),
                               style: TextStyle(color: Color(0XffFE8C00)),
                             ),
                           ],

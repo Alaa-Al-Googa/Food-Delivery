@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LanguagePickerBottomSheet extends StatefulWidget {
   final String initialLanguage;
@@ -36,8 +38,8 @@ class _LanguagePickerBottomSheetState extends State<LanguagePickerBottomSheet> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'Select Language',
+          Text(
+            'select_language'.tr(),
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
           ),
           const SizedBox(height: 16),
@@ -106,10 +108,17 @@ class _LanguagePickerBottomSheetState extends State<LanguagePickerBottomSheet> {
               ),
               onPressed: () {
                 widget.onSelected(selectedLanguage);
-                Navigator.pop(context);
+                //Navigator.pop(context);
+                if (selectedLanguage == 'English (US)') {
+                  context.setLocale(Locale('en'));
+                } else if (selectedLanguage == 'العربية') {
+                  context.setLocale(Locale('ar'));
+                }
+                //setState(() {});
+                context.go('/');
               },
-              child: const Text(
-                'Select',
+              child: Text(
+                'button_setting_sheet'.tr(),
                 style: TextStyle(fontSize: 18, color: Colors.white),
               ),
             ),
