@@ -11,7 +11,6 @@ class SettingScreen extends StatefulWidget {
 class _SettingScreenState extends State<SettingScreen> {
   bool pushNotification = false;
   bool location = true;
-  //String selectedLanguage = "English (US)";
   late String selectedLanguage;
 
   Future<void> showLanguagePickerBottomSheet({
@@ -25,7 +24,6 @@ class _SettingScreenState extends State<SettingScreen> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) => LanguagePickerBottomSheet(
-        //initialLanguage: initialLanguage,
         initialLanguage: selectedLanguage,
         onSelected: onSelected,
       ),

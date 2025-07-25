@@ -17,6 +17,9 @@
     "text_with_option":"Or sign in with",
     "text_withRegister":"Don't have an account? ",
     "button_send_register":"Register",
+    "message_error_email_isEmpty":"Please enter your email",
+    "massage_error_email":"Enter a valid email",
+    "message_error_password":"Password must be at least 6 characters",
 
     "__register":"Register",
     "title_register":"Create your new\naccount",

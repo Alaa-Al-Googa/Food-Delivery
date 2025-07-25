@@ -29,6 +29,9 @@
     "text_agree_register3":" و",
     "text_agree_register4":"سياسة الخصوصية",
     "button_register":"تسجيل",
+    "message_error_email_isEmpty": "يرجى إدخال البريد الإلكتروني",
+    "message_error_email": "يرجى إدخال بريد إلكتروني صحيح",
+    "message_error_password": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",
 
 
     "__home":"Home",
