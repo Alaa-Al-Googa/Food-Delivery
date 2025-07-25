@@ -5,7 +5,12 @@ import 'package:gazaburger/screen/setting_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('email');
@@ -29,16 +34,16 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text(
-                      'Sign Out',
+                    Text(
+                      'title_dialog'.tr(),
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'Do you want to log out?',
+                    Text(
+                      'subTitle_dialog'.tr(),
                       style: TextStyle(fontSize: 14, color: Colors.grey),
                       textAlign: TextAlign.center,
                     ),
@@ -62,7 +67,7 @@ class ProfileScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: const Text('Cancel'),
+                            child: Text('button_Cancel_dialog'.tr()),
                           ),
                         ),
                         const SizedBox(width: 10),
@@ -80,7 +85,7 @@ class ProfileScreen extends StatelessWidget {
                               logout();
                               context.go('/login');
                             },
-                            child: const Text('Log Out'),
+                            child: Text('button_logOut_dialog'.tr()),
                           ),
                         ),
                       ],

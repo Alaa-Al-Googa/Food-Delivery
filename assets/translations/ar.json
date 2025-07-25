@@ -63,7 +63,12 @@
     "account_deletion_profile":"طلب حذف الحساب",
     "add_account_profile":"إضافة حساب آخر",
     "logout_profile":"تسجيل الخروج",
-    
+    "title_dialog": "تسجيل الخروج",
+    "subTitle_dialog": "هل تريد تسجيل الخروج؟",
+    "button_Cancel_dialog": "إلغاء",
+    "button_logOut_dialog": "تسجيل الخروج",
+
+
     "__personal":"Personal",
     "text_appbar_Personal":"البيانات الشخصية",
     "lable_name":"الاسم الكامل",

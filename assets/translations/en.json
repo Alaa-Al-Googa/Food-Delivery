@@ -60,6 +60,10 @@
     "account_deletion_profile":"Request Account Deletion",
     "add_account_profile":"Add another account",
     "logout_profile":"Sign Out",
+    "title_dialog":"Sign Out",
+    "subTitle_dialog":"Do you want to log out?",
+    "button_Cancel_dialog":"Cancel",
+    "button_logOut_dialog":"Log Out",
     
     "__personal":"Personal",
     "text_appbar_Personal":"Personal Data",

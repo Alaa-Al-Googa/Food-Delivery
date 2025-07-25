@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PersonalData extends StatefulWidget {
   @override
@@ -18,9 +19,20 @@ class _PersonalDataState extends State<PersonalData> {
     text: "+1 325-433-7656",
   );
   final TextEditingController emailController = TextEditingController(
-    text: "Albertstevano@gmail.com",
+    //text: "Albertstevano@gmail.com",
   );
   String selectedGender = "Male";
+
+  void loadData() async {
+    final prefs = await SharedPreferences.getInstance();
+    emailController.text = prefs.getString('email') ?? '';
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
 
   @override
   Widget build(BuildContext context) {
