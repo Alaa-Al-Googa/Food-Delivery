@@ -56,7 +56,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                   crossAxisCount: 2,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 16,
-                  childAspectRatio: 0.69,
+                  childAspectRatio: 0.90,
                 ),
                 itemBuilder: (context, index) {
                   final item = meals[index];
@@ -120,6 +120,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                           padding: const EdgeInsets.all(8.0),
                           child: Text(
                             item.name,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,

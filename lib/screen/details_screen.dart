@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gazaburger/api_service.dart';
@@ -144,7 +145,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         Divider(),
                         SizedBox(height: 5),
                         Text(
-                          "Description",
+                          'text_description'.tr(),
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
@@ -258,7 +259,7 @@ class _AddToCartBottomBarState extends State<AddToCartBottomBar> {
                 size: 25,
               ),
               label: Text(
-                "Add to Cart",
+                'button_add_cart'.tr(),
                 style: TextStyle(color: Colors.white, fontSize: 18),
               ),
               onPressed: () {},

@@ -54,7 +54,7 @@ class _FoodListSectionState extends State<FoodListSection> {
               crossAxisCount: 2,
               mainAxisSpacing: 16,
               crossAxisSpacing: 16,
-              childAspectRatio: 0.69,
+              childAspectRatio: 0.85,
             ),
             itemBuilder: (context, index) {
               final item = meals[index];
@@ -136,6 +136,8 @@ class _FoodListSectionState extends State<FoodListSection> {
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
                           ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       Padding(

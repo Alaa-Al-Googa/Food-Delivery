@@ -90,7 +90,11 @@
     "policy_setting":"سياسة الخصوصية",
     "term_setting":"الشروط والأحكام",
     "select_language":"اختر اللغة",
-    "button_setting_sheet":"اختر"
+    "button_setting_sheet":"اختر",
 
+
+    "__DetailsScreen":"Details",
+    "button_add_cart": "أضف إلى السلة",
+    "text_description": "الوصف"
 
 }

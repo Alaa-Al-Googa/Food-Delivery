@@ -86,7 +86,11 @@
     "policy_setting":"Privacy Policy",
     "term_setting":"Terms and Conditions",
     "select_language":"Select Language",
-    "button_setting_sheet":"Select"
+    "button_setting_sheet":"Select",
 
+
+    "__DetailsScreen":"Details",
+    "button_add_cart":"Add to Cart",
+    "text_description":"Description"
 
 }
